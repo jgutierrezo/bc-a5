@@ -1,0 +1,22 @@
+package com.juan;
+
+import jakarta.ejb.Stateful;
+
+/**
+ * Session Bean implementation class Mortgage
+ */
+@Stateful
+public class Mortgage implements MortgageRemote {
+
+    /**
+     * Default constructor. 
+     */
+    public Mortgage() {
+        // TODO Auto-generated constructor stub
+    }
+    
+    public String helloWorld() {
+    	return "Hello World";
+    }
+
+}

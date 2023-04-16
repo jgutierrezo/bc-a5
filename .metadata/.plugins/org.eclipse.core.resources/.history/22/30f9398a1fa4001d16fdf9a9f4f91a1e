@@ -1,0 +1,20 @@
+package com.juan;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Stateful;
+
+/**
+ * Session Bean implementation class Mortgage
+ */
+@Stateful
+@LocalBean
+public class Mortgage implements MortgageRemote {
+
+    /**
+     * Default constructor. 
+     */
+    public Mortgage() {
+        // TODO Auto-generated constructor stub
+    }
+
+}

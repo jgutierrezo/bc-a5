@@ -1,0 +1,3 @@
+INDEX VERSION 1.131
+/Users/juan/Documents/Humber/fourth_semester/BC/a1/ws2/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1468510718.index
+/client/src/main/java

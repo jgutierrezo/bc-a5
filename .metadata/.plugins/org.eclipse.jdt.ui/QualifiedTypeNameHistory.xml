@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.wildfly.security.http.HttpServerRequestWrapper"/>
+    <fullyQualifiedTypeName name="com.juan.Mortgage"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="org.wildfly.security.http.HttpServerRequest"/>
+    <fullyQualifiedTypeName name="org.wildfly.security.http.HttpServerResponse"/>
+    <fullyQualifiedTypeName name="com.juan.MortgageRemote"/>
+    <fullyQualifiedTypeName name="com.test.Client2"/>
+</qualifiedTypeNameHistroy>

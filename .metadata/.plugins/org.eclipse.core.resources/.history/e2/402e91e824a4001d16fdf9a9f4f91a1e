@@ -1,0 +1,37 @@
+package com.test;
+
+import javax.naming.Context;
+import javax.naming.NamingException;
+
+import jakarta.servlet.http.HttpServlet;
+
+
+public class Client extends HttpServlet{
+	public static void main(String[] args) {
+		Mortage bean = doLookup();
+		System.out.println(bean.calculateMortage());
+	}
+
+	private static Mortage doLookup() {
+		Context context = null;
+		Mortage bean = null;
+		try {
+			context = ClientUtility.getInitialContext();
+			String lookupName = getLookupName();
+			bean = (Mortage) context.lookup(lookupName);
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+		return bean;
+	}
+
+	private static String getLookupName() {
+		String appName = "";
+		String moduleName = "HelloWorldSessionBean";
+		String distinctName = "";
+		String beanName = Mortage.class.getSimpleName();
+		final String interfaceName = Mortage.class.getName();
+		String name = "ejb:" + appName + "/" + moduleName + "/" + distinctName + "/" + beanName + "!" + interfaceName;
+		return name;
+	}
+}

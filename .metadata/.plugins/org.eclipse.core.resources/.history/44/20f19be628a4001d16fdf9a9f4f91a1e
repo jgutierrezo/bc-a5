@@ -1,0 +1,49 @@
+package com.test;
+
+import javax.naming.Context;
+import javax.naming.NamingException;
+
+import org.wildfly.security.http.HttpServerRequest;
+import org.wildfly.security.http.HttpServerResponse;
+
+import com.juan.Mortgage;
+import com.juan.MortgageRemote;
+
+import jakarta.servlet.http.HttpServlet;
+
+
+public class Client extends HttpServlet{
+	public static void main(String[] args) {
+		MortgageRemote bean = doLookup();
+		System.out.println(bean.helloWorld());
+	}
+
+	private static MortgageRemote doLookup() {
+		Context context = null;
+		MortgageRemote bean = null;
+		try {
+			context = ClientUtility.getInitialContext();
+			String lookupName = getLookupName();
+			bean = (MortgageRemote) context.lookup(lookupName);
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+		return bean;
+	}
+
+	private static String getLookupName() {
+		String appName = "";
+		String moduleName = "assig1";
+		String distinctName = "";
+		String beanName = Mortgage.class.getSimpleName();
+		final String interfaceName = MortgageRemote.class.getName()+"?stateful";
+		String name = "ejb:" + appName + "/" + moduleName + "/" + distinctName + "/" + beanName + "!" + interfaceName;
+		return name;
+	}
+	
+	protected void doGet(HttpServerRequest request, HttpServerResponse response) {
+		MortgageRemote bean = doLookup();
+		System.out.println(bean.helloWorld());
+	}
+	
+}

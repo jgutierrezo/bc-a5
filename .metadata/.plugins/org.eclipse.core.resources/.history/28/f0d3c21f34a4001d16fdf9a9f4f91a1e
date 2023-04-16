@@ -1,0 +1,10 @@
+package com.juan;
+
+import jakarta.ejb.*;
+
+@Remote
+public interface MortgageRemote {
+
+	String calculateMortgage();
+
+}
