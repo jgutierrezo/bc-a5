@@ -1,0 +1,17 @@
+package com.test.model;
+
+import java.util.List;
+
+public class TrafficInfo {
+
+	private int id;
+	private String neighborhood;
+	private List<String> accidents;
+	private String pedestrians;
+	private String cars;
+	private String date;
+	
+	
+	
+
+}

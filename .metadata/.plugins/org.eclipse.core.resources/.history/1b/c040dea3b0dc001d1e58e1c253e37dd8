@@ -1,0 +1,54 @@
+package com.juan.model;
+
+import java.util.List;
+
+public class TrafficInfo {
+
+	private int id;
+	private String neighborhood;
+	private List<String> accidents;
+	private String pedestrians;
+	private String cars;
+	private String date;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getNeighborhood() {
+		return neighborhood;
+	}
+	public void setNeighborhood(String neighborhood) {
+		this.neighborhood = neighborhood;
+	}
+	public List<String> getAccidents() {
+		return accidents;
+	}
+	public void setAccidents(List<String> accidents) {
+		this.accidents = accidents;
+	}
+	public String getPedestrians() {
+		return pedestrians;
+	}
+	public void setPedestrians(String pedestrians) {
+		this.pedestrians = pedestrians;
+	}
+	public String getCars() {
+		return cars;
+	}
+	public void setCars(String cars) {
+		this.cars = cars;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
+	
+	
+
+}
+

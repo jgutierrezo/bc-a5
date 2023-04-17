@@ -1,0 +1,12 @@
+package com.test.model;
+
+public class TrafficInfo {
+
+	private int id;
+	private String neighborhood;
+	private List<String>
+	
+	
+	
+
+}

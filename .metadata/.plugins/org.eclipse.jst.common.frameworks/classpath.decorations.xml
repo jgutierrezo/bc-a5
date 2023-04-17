@@ -1,0 +1,7 @@
+<classpath>
+  <container id="client!org.eclipse.jst.j2ee.internal.web.container">
+    <entry id="/Users/juan/Documents/Humber/fourth_semester/BC/a1/ws2/client/src/main/webapp/WEB-INF/lib/assig1.jar">
+      <source-attachment-path>/assig1</source-attachment-path>
+    </entry>
+  </container>
+</classpath>

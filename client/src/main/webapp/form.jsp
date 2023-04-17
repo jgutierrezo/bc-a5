@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="<%=request.getContextPath()%>/mortgageForm" method="post">
+<form action="<%=request.getContextPath()%>/TrafficForm" method="post">
 
 <div>
 Mortgage Amount: <input name="amount" type="number">

@@ -1,0 +1,77 @@
+package com.test;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.naming.Context;
+import javax.naming.NamingException;
+
+import com.juan.Traffic;
+import com.juan.TrafficRemote;
+import com.test.model.Neighborhood;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/TrafficForm")
+public class Client extends HttpServlet {
+	public static void main(String[] args) {
+		TrafficRemote bean = doLookup();
+	}
+
+	public Client() {
+		super();
+	}
+
+	private static TrafficRemote doLookup() {
+		Context context = null;
+		TrafficRemote bean = null;
+		try {
+			context = ClientUtility.getInitialContext();
+			String lookupName = getLookupName();
+			bean = (TrafficRemote) context.lookup(lookupName);
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+		return bean;
+	}
+
+	private static String getLookupName() {
+		String appName = "";
+		String moduleName = "assig1";
+		String distinctName = "";
+		String beanName = Traffic.class.getSimpleName();
+		final String interfaceName = TrafficRemote.class.getName() + "?stateful";
+		String name = "ejb:" + appName + "/" + moduleName + "/" + distinctName + "/" + beanName + "!" + interfaceName;
+		return name;
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		List<Neighborhood> neigh = new ArrayList<>();
+		neigh.add(new Neighborhood(1,"n1"));
+		neigh.add(new Neighborhood(2,"n2"));
+		
+
+		request.getRequestDispatcher("/add_traffic.jsp").forward(request, response);
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		TrafficRemote bean = doLookup();
+		String result = bean.calculateMortgage(Double.valueOf(request.getParameter("amount")),
+				Double.valueOf(request.getParameter("rate")), Integer.valueOf(request.getParameter("year")));
+		
+		System.out.println("result: "+result);
+		
+		request.setAttribute("result", result);
+		request.getRequestDispatcher("/result.jsp").forward(request, response);
+	}
+
+}

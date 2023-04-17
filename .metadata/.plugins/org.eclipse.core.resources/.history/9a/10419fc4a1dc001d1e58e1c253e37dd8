@@ -1,0 +1,10 @@
+package com.juan;
+
+import jakarta.ejb.*;
+
+@Remote
+public interface TrafficRemote {
+
+	String calculateMortgage(Double amount, Double rate, int years);
+
+}

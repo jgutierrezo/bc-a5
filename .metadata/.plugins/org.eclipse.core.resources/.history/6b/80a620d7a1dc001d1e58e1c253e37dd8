@@ -1,0 +1,31 @@
+package com.juan;
+
+import jakarta.ejb.Stateful;
+
+/**
+ * Session Bean implementation class Mortgage
+ */
+@Stateful
+public class Traffic implements TrafficRemote {
+
+	/**
+	 * Default constructor.
+	 */
+	public Traffic() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String calculateMortgage(Double amount, Double rate, int years) {
+
+		Double monthlyFee = 0D;
+		rate = rate/(100*12);
+		int months = years * 12;
+		
+
+		monthlyFee = amount * rate / (1 - Math.pow(1 + rate, -months));
+		return String.format("%.2f", monthlyFee);
+
+	}
+
+}
